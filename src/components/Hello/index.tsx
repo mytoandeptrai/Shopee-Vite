@@ -1,17 +1,8 @@
-import logo from '~/logo.svg';
+import logo from '~/logo.svg'
 
 const Hello = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
-        paddingTop: '50px',
-      }}
-    >
+    <div className='bg-black'>
       <img src={logo} alt='Logo' style={{ height: '150px' }} />
       <ul
         style={{
@@ -20,7 +11,7 @@ const Hello = () => {
           fontSize: '1.6rem',
           display: 'flex',
           flexDirection: 'column',
-          gap: '14px',
+          gap: '14px'
         }}
       >
         <li>🚀 Vite</li>
@@ -41,7 +32,7 @@ const Hello = () => {
         </a>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Hello;
+export default Hello

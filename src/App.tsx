@@ -1,7 +1,7 @@
-import Hello from '~/components/Hello';
-
+import Hello from '~/components/Hello'
+import './App.scss'
 function App() {
-  return <Hello />;
+  return <Hello />
 }
 
-export default App;
+export default App
