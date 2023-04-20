@@ -1,6 +1,11 @@
 import axios, { AxiosResponse } from 'axios'
 import queryString from 'query-string'
-import { getAccessTokenLocalStorage, getRefreshTokenLocalStorage, setCurrentUserLocalStorage } from '~/utils'
+import {
+  getAccessTokenLocalStorage,
+  getRefreshTokenLocalStorage,
+  removeEmptyValuesObject,
+  setCurrentUserLocalStorage
+} from '~/utils'
 
 const BASE_URL_API =
   import.meta.env.VITE_MODE === 'dev' ? import.meta.env.VITE_BASE_URL_DEV : import.meta.env.VITE_BASE_URL_PROD
@@ -9,7 +14,8 @@ const axiosClient = axios.create({
   baseURL: BASE_URL_API,
   paramsSerializer: {
     serialize: (params) => {
-      return queryString.stringify(params)
+      const removeEmptyStringValueObj = removeEmptyValuesObject(params)
+      return queryString.stringify(removeEmptyStringValueObj)
     }
   }
 })
@@ -23,11 +29,10 @@ const requestRefreshToken = async () => {
 
 axiosClient.interceptors.request.use(
   async function (config: any) {
-    console.log('🚀 ~ file: axiosClient.ts:26 ~ config:', config)
     const customConfig = {
       ...config,
       headers: {
-        'Content-Type': 'application/json',
+        // 'Content-Type': 'application/json',
         Authorization: `Bearer ${getAccessTokenLocalStorage()}`
       }
     }

@@ -10,9 +10,9 @@ import {
 import axiosClient from './axiosClient'
 
 export const voucherAPI = {
-  getMyVoucher: (): Promise<MyVouchersResponse> => {
+  getMyVoucher: (params?: Partial<IVoucherSearchParams>): Promise<MyVouchersResponse> => {
     const path = `/v1/vouchers/my-voucher`
-    return axiosClient.get(path)
+    return axiosClient.get(path, { params })
   },
   getDiscoverVoucher: (params?: Partial<IDiscoverVoucherSearchParams>): Promise<VouchersResponse> => {
     const path = `api/vouchers/discover`

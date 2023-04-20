@@ -103,3 +103,13 @@ export const generateAddress = (values: IAddress) => {
   const address = `${street}, ${ward.name}, ${district.name}, ${city.name}`
   return address
 }
+
+export const removeEmptyValuesObject = (object: { [key: string]: string }) => {
+  Object.keys(object).forEach((key) => {
+    if (object[key] === '') {
+      delete object[key]
+    }
+  })
+
+  return object
+}

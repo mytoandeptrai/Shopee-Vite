@@ -9,12 +9,15 @@ const RegisterPage = lazy(() => import('~/pages/RegisterPage'))
 const CartPage = lazy(() => import('~/pages/CartPage'))
 const CheckOutPage = lazy(() => import('~/pages/CheckOutPage'))
 const ProfilePage = lazy(() => import('~/pages/ProfilePage'))
+const VoucherDiscoverPage = lazy(() => import('~/pages/VoucherDiscoverPage'))
+const VoucherWalletPage = lazy(() => import('~/pages/VoucherWalletPage'))
 
 const publicRoutes = {
   HomePage,
   ProductDetailPage,
   SearchPage,
-  CartPage
+  CartPage,
+  VoucherDiscoverPage
 }
 
 const privateLoggedInRoutes = {
@@ -24,7 +27,8 @@ const privateLoggedInRoutes = {
 
 const privateRoutes = {
   CheckOutPage,
-  ProfilePage
+  ProfilePage,
+  VoucherWalletPage
 }
 
 export { publicRoutes, privateLoggedInRoutes, privateRoutes }

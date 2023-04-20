@@ -51,6 +51,7 @@ const RootLayout = () => {
         <Route path={`${routeConfig.ProductPage}/:id`} element={renderElementRoute(publicRoutes.ProductDetailPage)} />
         <Route path={routeConfig.SearchPage} element={renderElementRoute(publicRoutes.SearchPage)} />
         <Route path={routeConfig.CartPage} element={renderElementRoute(publicRoutes.CartPage)} />
+        <Route path={routeConfig.VoucherDiscoverPage} element={renderElementRoute(publicRoutes.VoucherDiscoverPage)} />
       </Route>
 
       <Route
@@ -110,6 +111,7 @@ const RootLayout = () => {
           {/* User Routes */}
           <Route path={routeConfig.CheckoutPage} element={renderElementRoute(privateRoutes.CheckOutPage)} />
           <Route path={routeConfig.ProfilePage} element={renderElementRoute(privateRoutes.ProfilePage)} />
+          <Route path={routeConfig.VoucherWalletPage} element={renderElementRoute(privateRoutes.VoucherWalletPage)} />
         </Route>
       </Route>
     </Routes>
