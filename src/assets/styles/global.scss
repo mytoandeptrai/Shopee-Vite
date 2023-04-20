@@ -28,4 +28,180 @@
     padding: 0 15px;
     margin: 0 auto;
   }
+
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+  }
+}
+
+@layer utilities {
+  .search-category {
+    @apply flex items-center gap-x-2 border-b-2 border-[#0000000d] pb-3 text-base font-semibold text-[#000000cc];
+  }
+  .layout-sidebar {
+    @apply fixed top-0 left-0 bottom-0 z-[300] w-full max-w-[300px] -translate-x-full overflow-auto bg-[#f5f5f5] p-4 transition-all duration-300 lg:static lg:translate-x-0 lg:p-0;
+  }
+  .order-status {
+    @apply relative z-20 flex h-12 w-12 items-center justify-center rounded-full border-4 bg-white md:h-14 md:w-14;
+  }
+  .section-dotted {
+    @apply border border-dotted border-black017 bg-[#fff] p-4;
+  }
+  .section-white {
+    @apply rounded-md bg-white px-4 py-5;
+    box-shadow: 0 1px 4px 0 rgb(74 74 78 / 12%);
+  }
+  .section-gray {
+    @apply bg-[#fafafa] px-5 py-4 font-medium;
+  }
+  .modalCustomize {
+    @apply absolute top-1/2 left-1/2 w-[94%] min-w-[300px] max-w-[600px] -translate-y-1/2 -translate-x-1/2 rounded-md bg-white p-5;
+  }
+}
+
+/** CUSTOMIZE SCSS */
+
+// Categories
+
+.home-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+// Products List
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  grid-gap: 10px;
+}
+
+// Product Card
+
+.product-card {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+  &:hover {
+    box-shadow: 0 0.1rem 2rem 0 rgb(0 0 0 / 5%);
+  }
+}
+
+// Product Title
+.product-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+
+  @apply text-sm text-black33;
+}
+
+// Product description
+.product-desc img {
+  max-width: 600px;
+  margin: 20px auto;
+  border-radius: 8px;
+}
+
+// Input
+.shadow-input {
+  box-shadow: inset 0 2px 0 rgb(0 0 0 / 2%);
+}
+
+.shadow-rgba-customize {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.shadow-rgb-customize {
+  box-shadow: 0 1px 4px 0 rgb(74 74 78 / 12%);
+}
+
+/** Dropdown */
+.dropdown:hover .dropdown-select {
+  border-color: #0000008a;
+}
+.dropdown-outline .dropdown-select {
+  border: 0;
+  box-shadow: none;
+}
+
+/** shadow customize */
+.shadowCustomize {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+/** Popover */
+.popover {
+  top: 100%;
+  right: 0;
+  position: absolute;
+  will-change: transform;
+  animation: PopoverEnterAnimation 0.2s cubic-bezier(0.4, 0, 0.6, 1);
+  opacity: 1;
+  z-index: 400;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+
+  &-arrow {
+    border-bottom: 10px solid rgb(255, 255, 255);
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    top: -10px;
+    position: absolute;
+    right: 6px;
+    width: 0;
+    height: 0;
+  }
+
+  &-content {
+    box-shadow: 0 1px 3.125rem 0 rgb(0 0 0 /20%);
+    border-radius: 0.125rem;
+    overflow: hidden;
+    background-color: #fff;
+  }
+
+  :before {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    content: '';
+    height: 10px;
+    opacity: 0;
+    width: 100%;
+  }
+}
+
+/** line customize */
+.gradient-line {
+  height: 3px;
+  width: 100%;
+  background-position-x: -30px;
+  background-size: 116px 3px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #6fa6d6,
+    #6fa6d6 33px,
+    transparent 0,
+    transparent 41px,
+    #f18d9b 0,
+    #f18d9b 74px,
+    transparent 0,
+    transparent 82px
+  );
+}
+
+@keyframes PopoverEnterAnimation {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
