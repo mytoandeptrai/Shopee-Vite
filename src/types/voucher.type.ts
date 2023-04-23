@@ -36,6 +36,6 @@ export interface IPayloadVoucher {
 export type VoucherResponse = SuccessResponse<IVoucher>
 export type MyVouchersResponse = SuccessResponse<IVoucher[]>
 export type VouchersResponse = SuccessResponse<{
-  vouchers: IVoucher[]
-  pagination: IPagination
+  data: IVoucher[]
+  meta: IPagination
 }>

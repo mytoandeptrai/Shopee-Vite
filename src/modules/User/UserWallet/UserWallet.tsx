@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { voucherAPI } from '~/api'
 import { Loading } from '~/components/Loading'
+import { Tabs } from '~/components/Tabs'
 import { STALE_TIME_CONSTANT } from '~/constants'
 import useQueryParams from '~/hooks/useQueryParams'
 import { CommonLayout } from '~/layouts/templates'
@@ -12,10 +13,32 @@ import { VoucherEmpty, VoucherForm, VoucherList } from '~/modules/Voucher'
 import { routeConfig } from '~/route/routeConfig'
 import { useStore } from '~/store/globalStore'
 
-const VoucherWalletPage = () => {
+const UserWallet = () => {
   const { currentUser } = useStore((state) => state)
   const { queryParams } = useQueryParams()
   const status = queryParams?.status || ''
+
+  const tabs = React.useMemo(
+    () => [
+      {
+        key: '',
+        display: 'Tất cả',
+        to: routeConfig.VoucherWalletPage
+      },
+      {
+        key: 'used',
+        display: 'Đã sử dụng',
+        to: `${routeConfig.VoucherWalletPage}?status=used`
+      },
+      {
+        key: 'expiration',
+        display: 'Hết hiệu lực',
+        to: `${routeConfig.VoucherWalletPage}?status=expiration`
+      }
+    ],
+    []
+  )
+
   const {
     isLoading,
     refetch,
@@ -71,9 +94,10 @@ const VoucherWalletPage = () => {
         <title>Kho voucher của bạn</title>
       </Helmet>
       <VoucherForm handleSubmitForm={handleSubmitVoucher} disabledButton={!currentUser || !currentUser?._id} />
+      <Tabs query={status} tabs={tabs} />
       {renderVoucher()}
     </CommonLayout>
   )
 }
 
-export default VoucherWalletPage
+export default UserWallet

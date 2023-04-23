@@ -1,3 +1,2 @@
-import { UserUploadAvatar } from './UserUploadAvatar'
-
+import { UserUploadAvatar } from './Components/UserUploadAvatar'
 export { UserUploadAvatar }

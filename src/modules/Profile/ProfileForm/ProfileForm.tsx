@@ -20,7 +20,7 @@ const ProfileForm = ({ initialValue, handleUpdateUserInfo, errorResponse = null 
     validationSchema: userUpdateValidation,
     onSubmit: (values) => {
       const address = generateAddress(values)
-      const payload = { ...values, address }
+      const payload = { ...values, address, email: initialValue?.email }
       handleUpdateUserInfo(payload)
     }
   })

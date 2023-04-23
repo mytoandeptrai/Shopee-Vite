@@ -10,7 +10,7 @@ import { Input, InputPassword } from '~/components/InputCustomize'
 import { Label } from '~/components/Label'
 import { routeConfig } from '~/route/routeConfig'
 import { IPayloadAuth } from '~/types'
-import { signUpRules } from '~/utils'
+import { signUpValidation } from '~/utils'
 
 const SignUpPage = () => {
   const navigate = useNavigate()
@@ -19,7 +19,7 @@ const SignUpPage = () => {
   })
   const formik = useFormik({
     initialValues: { email: '', password: '', confirm_password: '' },
-    validationSchema: signUpRules,
+    validationSchema: signUpValidation,
     onSubmit: async (values, { setErrors }) => {
       signUpMutation.mutate(values, {
         onSuccess: ({ message }) => {

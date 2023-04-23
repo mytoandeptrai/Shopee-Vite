@@ -20,3 +20,9 @@ export const initialValuesUpdateUser = {
   address: '',
   role: 'User'
 }
+
+export const initialValuesPasswords = {
+  currentPassword: '',
+  newPassword: '',
+  confirmPassword: ''
+}

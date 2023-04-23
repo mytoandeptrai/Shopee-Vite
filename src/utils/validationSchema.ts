@@ -12,7 +12,7 @@ export const signInValidation = Yup.object({
     .max(160, 'Độ dài từ 6 - 160 ký tự!')
 })
 
-export const signUpRules = Yup.object({
+export const signUpValidation = Yup.object({
   email: Yup.string()
     .required('Vui lòng nhập email!')
     .email('Email không đúng định dạng!')
@@ -27,6 +27,14 @@ export const signUpRules = Yup.object({
     .min(6, 'Độ dài từ 6 - 160 ký tự!')
     .max(160, 'Độ dài từ 6 - 160 ký tự!')
     .oneOf([Yup.ref('password')], 'Xác nhận mật khẩu không khớp!')
+})
+
+export const updatePasswordValidation = Yup.object({
+  currentPassword: Yup.string().required('Vui lòng nhập mật khẩu!').min(8, 'Mật khẩu phải có ít nhất 8 ký tự'),
+  newPassword: Yup.string().required('Vui lòng nhập mật khẩu!').min(8, 'Mật khẩu phải có ít nhất 8 ký tự'),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref('newPassword')], 'Xác nhận mật khẩu không khớp!')
+    .required('Vui lòng nhập xác nhận mật khẩu!')
 })
 
 export const priceValidation = Yup.object({

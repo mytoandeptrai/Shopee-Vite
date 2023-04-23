@@ -9,6 +9,7 @@ import { routeConfig } from '~/route/routeConfig'
 import { useStore } from '~/store/globalStore'
 import { AuthLayout, CheckLoggedInLayout, DefaultLayout, ProtectedRouteLayout } from './templates'
 import UserLayout from './templates/UserLayout/UserLayout'
+import { STALE_TIME_CONSTANT } from '~/constants'
 
 const RootLayout = () => {
   const { currentUser, setCarts } = useStore((state) => state)
@@ -20,7 +21,7 @@ const RootLayout = () => {
   useQuery({
     queryKey: ['carts/user'],
     queryFn: () => cartAPI.getCartOfUser(),
-    staleTime: 5 * 60 * 1000,
+    staleTime: STALE_TIME_CONSTANT.STALE_TIME,
     onSuccess({ data }) {
       setCarts(data.carts)
     },
@@ -111,7 +112,9 @@ const RootLayout = () => {
           {/* User Routes */}
           <Route path={routeConfig.CheckoutPage} element={renderElementRoute(privateRoutes.CheckOutPage)} />
           <Route path={routeConfig.ProfilePage} element={renderElementRoute(privateRoutes.ProfilePage)} />
-          <Route path={routeConfig.VoucherWalletPage} element={renderElementRoute(privateRoutes.VoucherWalletPage)} />
+          <Route path={routeConfig.VoucherWalletPage} element={renderElementRoute(privateRoutes.UserWallet)} />
+          <Route path={routeConfig.PasswordPage} element={renderElementRoute(privateRoutes.UserChangePassword)} />
+          <Route path={routeConfig.OrderPage} element={renderElementRoute(privateRoutes.UserOrder)} />
         </Route>
       </Route>
     </Routes>
