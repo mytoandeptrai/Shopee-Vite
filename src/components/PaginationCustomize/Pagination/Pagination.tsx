@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { IconNext, IconPrev } from '~/components/Icons'
 import { RANGE_CONSTANT } from '~/constants'
 import usePagination from '~/hooks/usePagination'
@@ -10,8 +10,12 @@ type Props = {
 }
 
 const Pagination = ({ pagination }: Props) => {
-  const { goPrevPage, goNextPage, handleClickNumberPage } = usePagination()
+  const { goPrevPage, goNextPage, handleClickNumberPage, currentPageInParams } = usePagination()
   const currentPage = Number(pagination.currentPage)
+
+  const disabledCurrentPageButton = useMemo(() => {
+    return currentPage === currentPageInParams
+  }, [currentPage, currentPageInParams])
 
   const renderPagination = () => {
     let dotAfter = false
@@ -83,6 +87,8 @@ const Pagination = ({ pagination }: Props) => {
             key={pageNumber}
             active={pageNumber === pagination.currentPage}
             onClick={() => handleClickNumberPage(pageNumber)}
+            disabled={disabledCurrentPageButton}
+            className={disabledCurrentPageButton ? 'disabled:cursor-not-allowed' : ''}
           >
             {pageNumber}
           </PaginationNumber>

@@ -24,6 +24,7 @@ export default function usePagination() {
     goPrevPage,
     goNextPage,
     handleFilter,
-    handleClickNumberPage
+    handleClickNumberPage,
+    currentPageInParams: currentPage
   }
 }

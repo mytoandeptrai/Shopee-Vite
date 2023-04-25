@@ -35,7 +35,7 @@ export interface IPagination {
   total: number
 }
 
-export interface IOrderItem {
+export interface IOrderItemPayload {
   quantity: number
   product: string
   oldPrice: number
@@ -55,5 +55,5 @@ export interface IOrderPayload {
   total: number
   voucherCode: string | undefined
   methodPayment: string
-  orderItems: IOrderItem[]
+  orderItems: IOrderItemPayload[]
 }

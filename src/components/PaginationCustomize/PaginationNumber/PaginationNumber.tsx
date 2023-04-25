@@ -20,7 +20,7 @@ const PaginationNumber = ({ active = false, className = '', children, ...props }
     }
 
     return (
-      <button type='button' className={classNames('h-7 w-9 text-lg font-medium')} {...props}>
+      <button type='button' className={classNames('h-7 w-9 text-lg font-medium', className)} {...props}>
         {children}
       </button>
     )

@@ -12,32 +12,12 @@ import { CommonLayout } from '~/layouts/templates'
 import { VoucherEmpty, VoucherForm, VoucherList } from '~/modules/Voucher'
 import { routeConfig } from '~/route/routeConfig'
 import { useStore } from '~/store/globalStore'
+import { userWalletTabs } from './UserWallet.config'
 
 const UserWallet = () => {
   const { currentUser } = useStore((state) => state)
   const { queryParams } = useQueryParams()
   const status = queryParams?.status || ''
-
-  const tabs = React.useMemo(
-    () => [
-      {
-        key: '',
-        display: 'Tất cả',
-        to: routeConfig.VoucherWalletPage
-      },
-      {
-        key: 'used',
-        display: 'Đã sử dụng',
-        to: `${routeConfig.VoucherWalletPage}?status=used`
-      },
-      {
-        key: 'expiration',
-        display: 'Hết hiệu lực',
-        to: `${routeConfig.VoucherWalletPage}?status=expiration`
-      }
-    ],
-    []
-  )
 
   const {
     isLoading,
@@ -94,7 +74,7 @@ const UserWallet = () => {
         <title>Kho voucher của bạn</title>
       </Helmet>
       <VoucherForm handleSubmitForm={handleSubmitVoucher} disabledButton={!currentUser || !currentUser?._id} />
-      <Tabs query={status} tabs={tabs} />
+      <Tabs query={status} tabs={userWalletTabs} />
       {renderVoucher()}
     </CommonLayout>
   )

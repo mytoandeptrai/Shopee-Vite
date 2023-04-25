@@ -15,7 +15,7 @@ const RootLayout = () => {
   const { currentUser, setCarts } = useStore((state) => state)
 
   const isAcTive = useMemo(() => {
-    return currentUser ? true : false
+    return currentUser && currentUser?._id ? true : false
   }, [currentUser])
 
   useQuery({

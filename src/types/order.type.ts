@@ -1,5 +1,5 @@
 import { IProduct } from './product.type'
-import { IPagination, SuccessResponse, IOrderItem as IOrderItems } from './utils.type'
+import { IOrderItemPayload as IOrderItems, SuccessResponse } from './utils.type'
 export enum EnumOrderStatus {
   waiting = 'waiting',
   processing = 'processing',
@@ -87,5 +87,4 @@ export interface IPayloadCancelOrder {
 export type OrderResponse = SuccessResponse<IOrderDetails>
 export type OrdersResponse = SuccessResponse<{
   orders: IOrderDetails[]
-  pagination: IPagination
 }>
