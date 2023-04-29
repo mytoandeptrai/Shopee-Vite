@@ -46,8 +46,8 @@ export interface IOrderDetails {
   shippingAt: string
   deliveredAt: string
   canceledAt: string
-  createdAt: string
-  updatedAt: string
+  created_at: string
+  updated_at: string
   reasonCancel: string
   methodPayment: string
   user: {

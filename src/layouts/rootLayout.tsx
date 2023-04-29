@@ -115,6 +115,7 @@ const RootLayout = () => {
           <Route path={routeConfig.VoucherWalletPage} element={renderElementRoute(privateRoutes.UserWallet)} />
           <Route path={routeConfig.PasswordPage} element={renderElementRoute(privateRoutes.UserChangePassword)} />
           <Route path={routeConfig.OrderPage} element={renderElementRoute(privateRoutes.UserOrder)} />
+          <Route path={`${routeConfig.OrderPage}/:id`} element={renderElementRoute(privateRoutes.UserOrderDetail)} />
         </Route>
       </Route>
     </Routes>
