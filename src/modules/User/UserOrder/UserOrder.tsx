@@ -8,6 +8,8 @@ import { UserOrderInput } from '../Components/UserOrderInput'
 import { Loading } from '~/components/Loading'
 import { OrderEmpty, OrderList } from '~/modules/Order'
 import { Pagination } from '~/components/PaginationCustomize'
+import { Tabs } from '~/components/Tabs'
+import { userOrderTabs } from './UserOrder.config'
 
 const UserOrder = () => {
   const { queryParams, setSearchParams } = useQueryParams()
@@ -49,6 +51,7 @@ const UserOrder = () => {
       <Helmet>
         <title>Đơn hàng của bạn</title>
       </Helmet>
+      <Tabs tabs={userOrderTabs} query={status} />
       <UserOrderInput handleSubmitOrder={handleSubmitOrder} />
       {renderUserOrder()}
     </div>

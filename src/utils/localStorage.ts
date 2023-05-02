@@ -25,11 +25,11 @@ export const getAccessTokenLocalStorage = () => {
   return currentUser?.accessToken
 }
 
-export const getHistoryLocalStorage: () => IProduct[] = () => {
+export const getHistoryProductsLocalStorage: () => IProduct[] = () => {
   return JSON.parse(localStorage.getItem(LocalStorage.history) || '[]')
 }
 
-export const setHistoryLocalStorage = (products: IProduct[]) => {
+export const setHistoryProductsLocalStorage = (products: IProduct[]) => {
   localStorage.setItem(LocalStorage.history, JSON.stringify(products))
 }
 

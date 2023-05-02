@@ -116,6 +116,8 @@ const RootLayout = () => {
           <Route path={routeConfig.PasswordPage} element={renderElementRoute(privateRoutes.UserChangePassword)} />
           <Route path={routeConfig.OrderPage} element={renderElementRoute(privateRoutes.UserOrder)} />
           <Route path={`${routeConfig.OrderPage}/:id`} element={renderElementRoute(privateRoutes.UserOrderDetail)} />
+          <Route path={routeConfig.HistoryPage} element={renderElementRoute(privateRoutes.UserHistory)} />
+          <Route path={routeConfig.WishlistPage} element={renderElementRoute(privateRoutes.UserWishList)} />
         </Route>
       </Route>
     </Routes>

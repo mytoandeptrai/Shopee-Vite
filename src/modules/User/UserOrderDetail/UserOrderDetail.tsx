@@ -59,7 +59,7 @@ const UserOrderDetail = () => {
         <OrderInformation orderDetails={orderDetails} />
       </div>
       <OrderCancelAction refetch={refetch} status={orderDetails.status} />
-      <OrderReviews orderItems={orderDetails.orderItems} />
+      <OrderReviews orderItems={orderDetails.orderItems} orderUser={orderDetails.user} />
       <OrderPayment
         promotion={orderDetails.promotion}
         shippingFee={orderDetails.shippingFee}

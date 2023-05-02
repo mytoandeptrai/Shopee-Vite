@@ -1,3 +1,5 @@
+import { ModalAddNewReview } from './ModalAddNewReview'
 import { ModalApplyVoucher } from './ModalApplyVoucher'
+import { ModalEditReview } from './ModalEditReview'
 
-export { ModalApplyVoucher }
+export { ModalApplyVoucher, ModalAddNewReview, ModalEditReview }

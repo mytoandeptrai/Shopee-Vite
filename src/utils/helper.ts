@@ -1,5 +1,5 @@
 import { IAddress, ICart, IProduct } from '~/types'
-import { getHistoryLocalStorage, setHistoryLocalStorage } from './localStorage'
+import { getHistoryProductsLocalStorage, setHistoryProductsLocalStorage } from './localStorage'
 
 /* eslint-disable no-useless-escape */
 export function scrollToDestination(top?: number, left?: number) {
@@ -63,12 +63,12 @@ export const generateUsername = (email: string) => {
 
 export const saveHistoryView = (product: IProduct) => {
   if (!product?.name) return
-  let history: IProduct[] = getHistoryLocalStorage()
+  let history: IProduct[] = getHistoryProductsLocalStorage()
   if (history.length >= 20) history.splice(19, 1)
   const foundProductIndex = history.findIndex((item) => item._id === product._id)
   if (foundProductIndex !== -1) history = history.splice(foundProductIndex, 1)
   history.unshift(product)
-  setHistoryLocalStorage(history)
+  setHistoryProductsLocalStorage(history)
 }
 
 export const calcShippingFee = (shopCityId: string, userCityId: string) => {

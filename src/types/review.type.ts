@@ -1,9 +1,13 @@
 import { ICurrentUser } from './user.type'
 import { SuccessResponse } from './utils.type'
-
+interface IProductReview {
+  _id: string
+  name: string
+  image: string
+}
 export interface IReview {
   _id: string
-  productId: string
+  productId: IProductReview
   orderId: string
   comment: string
   rating: number
@@ -17,6 +21,11 @@ export interface IPayloadReview {
   comment: string
   productId: string
   orderId: string
+}
+
+export interface IPayloadUpdateReview {
+  reviewId: string
+  payload: IPayloadReview
 }
 
 export type ReviewsResponse = SuccessResponse<IReview[]>

@@ -6,7 +6,7 @@ export const reviewAPI = {
     const path = `/v1/reviews/`
     return axiosClient.post(path, payload)
   },
-  updateProduct: (reviewId: string, payload: IPayloadReview): Promise<IResponse> => {
+  updateReview: (reviewId: string, payload: IPayloadReview): Promise<IResponse> => {
     const path = `/v1/reviews/${reviewId}`
     return axiosClient.put(path, payload)
   },
