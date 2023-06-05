@@ -43,7 +43,22 @@ export interface IProductsConfig {
   name?: string
 }
 
-export type IPayloadProduct = Omit<IProduct, '_id' | 'reviews'>
+export interface ICreateProductPayload {
+  _id: string
+  name: string
+  images: File[] | string[]
+  description: string
+  category: string
+  oldPrice: number
+  price: number
+  rating: number
+  stock: number
+  sold: number
+  view: number
+  reviews: IReview[]
+}
+
+export type IPayloadProduct = Omit<ICreateProductPayload, '_id' | 'reviews'>
 export type ProductResponse = SuccessResponse<IProduct>
 export type ProductsResponse = SuccessResponse<{
   products: IProduct[]

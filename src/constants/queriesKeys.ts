@@ -1,5 +1,6 @@
 export enum QUERIES_KEY {
   BANNER = 'banner',
   CATEGORIES = 'categories',
-  PRODUCTS = 'products'
+  PRODUCTS = 'products',
+  PRODUCT = 'product'
 }

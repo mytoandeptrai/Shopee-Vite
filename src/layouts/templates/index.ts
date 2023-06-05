@@ -1,7 +1,8 @@
+import { AdminLayout } from './AdminLayout'
 import { AuthLayout } from './AuthLayout'
 import { CommonLayout } from './CommonLayout'
 import { DefaultLayout } from './DefaultLayout'
-import { CheckLoggedInLayout } from './ProtectedLayout/CheckLoggedInLayout'
-import { ProtectedRouteLayout } from './ProtectedLayout/ProtectedRouteLayout'
+import { CheckLoggedInLayout } from './ProtectedLayout'
+import { ProtectedRouteLayout } from './ProtectedLayout'
 
-export { DefaultLayout, AuthLayout, CheckLoggedInLayout, ProtectedRouteLayout, CommonLayout }
+export { DefaultLayout, AuthLayout, CheckLoggedInLayout, ProtectedRouteLayout, CommonLayout, AdminLayout }

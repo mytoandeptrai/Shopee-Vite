@@ -7,9 +7,10 @@ import { Fallback } from '~/components/Fallback'
 import { privateLoggedInRoutes, privateRoutes, publicRoutes } from '~/route'
 import { routeConfig } from '~/route/routeConfig'
 import { useStore } from '~/store/globalStore'
-import { AuthLayout, CheckLoggedInLayout, DefaultLayout, ProtectedRouteLayout } from './templates'
+import { AdminLayout, AuthLayout, CheckLoggedInLayout, DefaultLayout, ProtectedRouteLayout } from './templates'
 import UserLayout from './templates/UserLayout/UserLayout'
 import { STALE_TIME_CONSTANT } from '~/constants'
+import { AdminLayoutDashboard } from './templates/AdminLayout/components/AdminLayoutDashboard'
 
 const RootLayout = () => {
   const { currentUser, setCarts } = useStore((state) => state)
@@ -99,8 +100,9 @@ const RootLayout = () => {
           </Suspense>
         }
       >
+        <Route path={routeConfig.CheckoutPage} element={renderElementRoute(privateRoutes.CheckOutPage)} />
+        {/* User Layout + Routes */}
         <Route
-          path='/'
           element={
             <Suspense fallback={<Fallback />}>
               <ErrorBoundary>
@@ -109,8 +111,6 @@ const RootLayout = () => {
             </Suspense>
           }
         >
-          {/* User Routes */}
-          <Route path={routeConfig.CheckoutPage} element={renderElementRoute(privateRoutes.CheckOutPage)} />
           <Route path={routeConfig.ProfilePage} element={renderElementRoute(privateRoutes.ProfilePage)} />
           <Route path={routeConfig.VoucherWalletPage} element={renderElementRoute(privateRoutes.UserWallet)} />
           <Route path={routeConfig.PasswordPage} element={renderElementRoute(privateRoutes.UserChangePassword)} />
@@ -118,6 +118,35 @@ const RootLayout = () => {
           <Route path={`${routeConfig.OrderPage}/:id`} element={renderElementRoute(privateRoutes.UserOrderDetail)} />
           <Route path={routeConfig.HistoryPage} element={renderElementRoute(privateRoutes.UserHistory)} />
           <Route path={routeConfig.WishlistPage} element={renderElementRoute(privateRoutes.UserWishList)} />
+        </Route>
+        {/* Admin Layout + Routes  */}
+        <Route
+          element={
+            <Suspense fallback={<Fallback />}>
+              <ErrorBoundary>
+                <AdminLayout />
+              </ErrorBoundary>
+            </Suspense>
+          }
+        >
+          <Route
+            path={routeConfig.DashboardPage}
+            element={
+              <Suspense fallback={<Fallback />}>
+                <ErrorBoundary>
+                  <AdminLayoutDashboard />
+                </ErrorBoundary>
+              </Suspense>
+            }
+          >
+            <Route index element={renderElementRoute(privateRoutes.DashboardPage)} />
+            <Route path={routeConfig.ProductManagePage} element={renderElementRoute(privateRoutes.ProductManage)} />
+            <Route path={routeConfig.ProductAddNewPage} element={renderElementRoute(privateRoutes.ProductAddNew)} />
+            <Route
+              path={`${routeConfig.ProductUpdatePage}/:id`}
+              element={renderElementRoute(privateRoutes.ProductUpdate)}
+            />
+          </Route>
         </Route>
       </Route>
     </Routes>

@@ -1,4 +1,4 @@
-import { IAddress, ICart, IProduct } from '~/types'
+import { IAddress, ICart, ICreateProductPayload, IProduct } from '~/types'
 import { getHistoryProductsLocalStorage, setHistoryProductsLocalStorage } from './localStorage'
 
 /* eslint-disable no-useless-escape */
@@ -112,4 +112,20 @@ export const removeEmptyValuesObject = (object: { [key: string]: string }) => {
   })
 
   return object
+}
+
+export const appendProductInfoToFormData = (productInfo: ICreateProductPayload) => {
+  const formData = new FormData()
+  Object.keys(productInfo).forEach((key) => {
+    const tempProduct: any = { ...productInfo }
+    if (Array.isArray(tempProduct[key])) {
+      for (let i = 0; i < tempProduct[key].length; i++) {
+        const file = tempProduct[key][i]
+        formData.append(key, file)
+      }
+    } else {
+      formData.append(key, tempProduct[key])
+    }
+  })
+  return formData
 }

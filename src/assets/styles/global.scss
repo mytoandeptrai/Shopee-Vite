@@ -199,6 +199,29 @@
   );
 }
 
+/** table customize */
+.tableCustomize {
+  width: 100%;
+  overflow-x: auto;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #e5e5e5;
+  }
+  thead th {
+    color: #999;
+    font-weight: 400;
+    background-color: #f6f6f6;
+  }
+  td,
+  th {
+    text-align: left;
+    padding: 20px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+}
+
 @keyframes PopoverEnterAnimation {
   0% {
     transform: scale(0);
