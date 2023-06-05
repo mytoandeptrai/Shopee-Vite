@@ -10,7 +10,6 @@ const CartPage = lazy(() => import('~/pages/CartPage'))
 const CheckOutPage = lazy(() => import('~/pages/CheckOutPage'))
 const ProfilePage = lazy(() => import('~/pages/ProfilePage'))
 const VoucherDiscoverPage = lazy(() => import('~/pages/VoucherDiscoverPage'))
-const DashboardPage = lazy(() => import('~/pages/DashboardPage'))
 
 /** Modules */
 const UserChangePassword = lazy(() => import('~/modules/User/UserChangePassword'))
@@ -19,9 +18,6 @@ const UserOrder = lazy(() => import('~/modules/User/UserOrder'))
 const UserOrderDetail = lazy(() => import('~/modules/User/UserOrderDetail'))
 const UserHistory = lazy(() => import('~/modules/User/UserHistory'))
 const UserWishList = lazy(() => import('~/modules/User/UserWishList'))
-const ProductManage = lazy(() => import('~/modules/Product/Admin/ProductManage'))
-const ProductAddNew = lazy(() => import('~/modules/Product/Admin/ProductAddNew'))
-const ProductUpdate = lazy(() => import('~/modules/Product/Admin/ProductUpdate'))
 
 const publicRoutes = {
   HomePage,
@@ -44,11 +40,7 @@ const privateRoutes = {
   UserOrder,
   UserOrderDetail,
   UserHistory,
-  UserWishList,
-  DashboardPage,
-  ProductManage,
-  ProductAddNew,
-  ProductUpdate
+  UserWishList
 }
 
 export { publicRoutes, privateLoggedInRoutes, privateRoutes }

@@ -66,12 +66,3 @@ export const userValidation = Yup.object({
 })
 
 export const userUpdateValidation = userValidation.pick(['fullname', 'phone', 'street', 'city', 'district', 'ward'])
-
-export const addNewProductValidation = Yup.object({
-  name: Yup.string().required('Vui lòng nhập tên sản phẩm!'),
-  description: Yup.string().required('Vui lòng nhập mô tả sản phẩm!'),
-  category: Yup.string().required('Vui lòng chọn danh mục!'),
-  oldPrice: Yup.number().required('Vui lòng chọn giá sản phẩm!'),
-  price: Yup.number().required().max(Yup.ref('oldPrice'), 'Giá đã giảm không được lớn hơn giá gốc'),
-  stock: Yup.number().required('Vui lòng chọn số lượng!')
-})
